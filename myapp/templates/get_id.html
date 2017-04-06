@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- Registration form --><center>
+
+
+<div class="container">
+
+  <h2>Welcome to TNGSCSTEWA Online Membership</h2>
+<div class="alert-success"><br>
+
+{% if maximum %}
+<p style="color:orange;font-size:20px" >{{maximum}}..Please contact Your District Secretary for further details</p>
+<br>
+{% endif %}
+
+
+{% if not_approved %}
+<p style="color:orange;font-size:20px" >{{not_approved}}..Please contact Your District Secretary for further details</p>
+<br>
+{% else %}
+<p style="color:orange;font-size:20px" >If You Are Registered Member ,Get Your TNGSCSTEWA Id Card  Here</p>
+<!-- Registration form --> <br>
+<form id="MemberForm" method="POST"  class="form-horizontal"  enctype="multipart/form-data">{% csrf_token %}
+
+
+<div class="form-group">
+      <label class="col-xs-12 col-sm-4 control-label">Member Id Number:</label>
+      <div class="col-xs-12 col-sm-5">
+      <input required type="text" maxlength="10" class="form-control" name="member" id="member" placeholder="Id Number">
+  </div>
+  </div>
+
+  
+<center><button  type="submit" class="btn  btn-info">Submit</button></center><br> 
+
+</form>
+
+{% endif %}</div>    </center>
+</div>
+<br>  
+  
+
+{% endblock %}

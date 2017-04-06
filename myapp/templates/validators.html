@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FormValidation demo</title>
+
+    <link rel="stylesheet" href="../validation/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../validation/css/formValidation.css"/>
+    <script type="text/javascript" src="../validation/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../validation/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../validation/js/formValidation.js"></script>
+    <script type="text/javascript" src="../validation/js/framework/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- form: -->
+            <section>
+                <div class="page-header">
+                  
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form id="defaultForm" method="post" action="target.php" class="form-horizontal">
+                        <fieldset>
+                            
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Name</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="name" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Gender</label>
+                                <div class="col-lg-5">
+                                    <select class="form-control" name="gender">
+                                        <option value="">-- Select a gender --</option>
+                                        <option value="fr">Male</option>
+                                        <option value="gb">Female</option>
+                                        <option value="us">Transgender</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="col-lg-3 control-label">Father/Husband Name</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="father_name" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Dob</label>
+                                <div class="col-lg-5">
+                                    <input type="date" id="dob" class="form-control" name="dob" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Doj</label>
+                                <div class="col-lg-5">
+                                    <input type="date" class="form-control" name="doj" />
+                                </div>
+                            </div>
+
+
+
+                             <div class="form-group">
+                                <label class="col-lg-3 control-label">District</label>
+                                <div class="col-lg-5">
+                                    <select class="form-control" name="district">
+                                        <option value="">-- Select a gender --</option>
+                                        <option value="fr">Male</option>
+                                        <option value="gb">Female</option>
+                                        <option value="us">Transgender</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                             <div class="form-group">
+                                <label class="col-lg-3 control-label">Block</label>
+                                <div class="col-lg-5">
+                                    <select class="form-control" name="block">
+                                        <option value="">-- Select a gender --</option>
+                                        <option value="fr">Male</option>
+                                        <option value="gb">Female</option>
+                                        <option value="us">Transgender</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Adress</label>
+                                <div class="col-lg-5">
+                                    <textarea name="address" class="form-control" > </textarea>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Pin code</label>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" name="pincode" />
+                                </div>
+                            </div>
+
+
+
+                             <div class="form-group">
+                                <label class="col-lg-3 control-label">designation</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="designation" />
+                                </div>
+                            </div>
+
+
+
+
+                             <div class="form-group">
+                                <label class="col-lg-3 control-label">Office</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="office" />
+                                </div>
+                            </div>
+
+
+
+
+                             <div class="form-group">
+                                <label class="col-lg-3 control-label">qualification</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="qualification" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Email address</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="email" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Phone number</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="mobile" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Adhaar number</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="aadhaar" />
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-lg-5 col-lg-offset-3">
+                                    <div class="checkbox">
+                                        <input type="checkbox" name="acceptTerms" /> Accept the terms and policies
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <!-- <legend>Regular expression based validators</legend> -->
+
+                           <!--  <div class="form-group">
+                                <label class="col-lg-3 control-label">Email address</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="email" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Website</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="website" placeholder="http://" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">US Phone number</label>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control" name="phoneNumberUS" />
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Hex, RGB, HSL, Keyword color</label>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" name="color" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">All colors</label>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" name="colorAll" />
+                                </div>
+                            </div> -->
+
+                        </fieldset>
+
+                        <!-- <fieldset>
+                            <legend>Identical validator</legend>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Password</label>
+                                <div class="col-lg-5">
+                                    <input type="password" class="form-control" name="password" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Retype password</label>
+                                <div class="col-lg-5">
+                                    <input type="password" class="form-control" name="confirmPassword" />
+                                </div>
+                            </div>
+                        </fieldset>
+ -->
+                        <!-- <fieldset>
+                            <legend>Other validators</legend>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Ages</label>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" name="ages" />
+                                </div>
+                            </div>
+                        </fieldset> -->
+
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <!-- :form -->
+        </div>
+    </div>
+
+
+
+  <script type="text/javascript">
+  $('#dob').inputmask({
+        mask: "2/1/y h:s t\\m",
+        placeholder: "mm/dd/yyyy hh:mm xm",
+        alias: "datetime",
+        hourFormat: "12"
+    });</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#defaultForm').formValidation({
+        message: 'This value is not valid',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+
+
+            name: {
+                message: 'The Name is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The Name is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 30,
+                        message: 'The Name must be more than 2 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The Name can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+
+            father_name: {
+                message: 'The Name is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The Name is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 30,
+                        message: 'The Name must be more than 2 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The Name can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+
+
+
+            gender: {
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required and can\'t be empty'
+                    }
+                }
+            },
+
+
+            dob: {
+                validators: {
+                    notEmpty: {
+                        message: 'The dob is required and can\'t be empty'
+                    },
+                    date: {
+                    format: 'MM/DD/YYYY',
+                    message: 'Enter MM/DD/YYYY format'
+                    },
+                    
+                }
+            },
+
+
+            doj: {
+                validators: {
+                    notEmpty: {
+                        message: 'The doj is required and can\'t be empty'
+                    },
+                    date: {
+                    format: 'MM/DD/YYYY',
+                    message: 'Enter MM/DD/YYYY format'
+                    },
+                    
+                }
+            },
+
+
+
+            district: {
+                validators: {
+                    notEmpty: {
+                        message: 'The district is required and can\'t be empty'
+                    }
+                }
+            },
+
+
+            block: {
+                validators: {
+                    notEmpty: {
+                        message: 'The block is required and can\'t be empty'
+                    }
+                }
+            },
+
+
+
+            address: {
+                message: 'The Adress is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The Adress is required and can\'t be empty'
+                    }
+                }
+            },
+
+
+
+            pincode: {
+                validators: {
+                    zipCode: {
+                        country: 'IN',
+                        message: 'The input is not a valid India zip code'
+                    },
+                    notEmpty: {
+                        message: 'The Adress is required and can\'t be empty'
+                    }
+                }
+            },
+
+
+
+
+
+            qualification: {
+                message: 'The Qualification is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The Qualification is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        
+                        max: 30,
+                        message: 'The Qualification must be more than 2 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The Qualification can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+
+
+
+            office: {
+                message: 'The Office Adress is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The Office Adress is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        
+                        max: 30,
+                        message: 'The Office Adress must be more than 2 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The Office Adress can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+
+
+
+            designation: {
+                message: 'The Designation Adress is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The Designation Adress is required and can\'t be empty'
+                    },
+                    stringLength: {
+                        
+                        max: 30,
+                        message: 'The Designation Adress must be more than 2 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The Designation Adress can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+
+
+
+           
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and can\'t be empty'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            },
+            
+            mobile: {
+            	validators: {
+            		phone: {
+            			country: 'IN'
+            		},
+            		stringLength: {
+                        
+                        min:10,
+                        max:10,
+                        message: 'The Mobile number must be 10 digit'
+                    },
+                    notEmpty:{
+
+                    }
+            	}
+            },
+
+
+
+            aadhaar: {
+            	validators: {
+            		
+            		stringLength: {
+                        
+                        min:12,
+                        max:12,
+                        // message: 'The Mobile number must be 10 digit'
+                    },
+                    notEmpty:{
+
+                    },
+            	}
+            },
+
+
+
+
+             acceptTerms: {
+                validators: {
+                    notEmpty: {
+                        message: 'You have to accept the terms and policies'
+                    }
+                }
+            },
+
+
+            // website: {
+            //     validators: {
+            //         uri: {
+            //             message: 'The input is not a valid URL'
+            //         }
+            //     }
+            // },
+            // phoneNumberUS: {
+            //     validators: {
+            //         phone: {
+            //             message: 'The input is not a valid US phone number'
+            //         }
+            //     }
+            // },
+            // color: {
+            //     validators: {
+            //         color: {
+            //             type: ['hex', 'rgb', 'hsl', 'keyword'],
+            //             message: 'Must be a valid %s color'
+            //         }
+            //     }
+            // },
+            // colorAll: {
+            //     validators: {
+            //         color: {}
+            //     }
+            // },
+           
+            // password: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'The password is required and can\'t be empty'
+            //         }
+            //     }
+            // },
+            // confirmPassword: {
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'The confirm password is required and can\'t be empty'
+            //         },
+            //         identical: {
+            //             field: 'password',
+            //             message: 'The password and its confirm are not the same'
+            //         }
+            //     }
+            // },
+            // ages: {
+            //     validators: {
+            //         lessThan: {
+            //             value: 100,
+            //             inclusive: true,
+            //             message: 'The ages has to be less than 100'
+            //         },
+            //         greaterThan: {
+            //             value: 10,
+            //             inclusive: false,
+            //             message: 'The ages has to be greater than or equals to 10'
+            //         }
+            //     }
+            // }
+        }
+    });
+});
+</script>
+</body>
+</html>

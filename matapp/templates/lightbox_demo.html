@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="http://fancyapps.com/fancybox/source/jquery.fancybox.css"></style>
+      <script type="text/javascript" src="http://fancyapps.com/fancybox/source/jquery.fancybox.js"></script>
+
+      <link rel="stylesheet" href="http://fancyapps.com/fancybox/source/helpers/jquery.fancybox-thumbs.js"></style>
+      <script type="text/javascript" src="http://fancyapps.com/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+      <script>
+      $(document).ready(function() {
+        $(".fancybox-thumb").fancybox({
+          prevEffect  : 'none',
+          nextEffect  : 'none',
+          helpers : {
+            title : {
+              type: 'outside'
+            },
+            thumbs  : {
+              width : 50,
+              height  : 50
+            }
+          }
+        });
+      });
+      </script>
+      <style>
+      .Img{
+          display:block;
+      }
+      </style>
+
+
+  <script type="text/javascript">
+     var started;
+     function showLightBox()
+    { 
+      if (started) return;
+      started = setTimeout(function(){
+          Lightbox.start(document.getElementById('firstImage'));
+          started;
+      },500);
+    }
+    function stopShowLightBox(){
+      if (started) {
+          clearTimeout(started)
+          started = 0;
+      }
+    }
+  </script>
+
+<body>
+  <!-- end of lightbox -->
+      <a class="fancybox-thumb" rel="fancybox-thumb" href="http://fancyapps.com/fancybox/demo/1_b.jpg" title="elgol sunset (matty brooks)">
+        <img src="http://fancyapps.com/fancybox/demo/1_s.jpg" alt="" />
+      </a>
+      <a class="fancybox-thumb" rel="fancybox-thumb" href="http://fancyapps.com/fancybox/demo/2_b.jpg" title="Frondaisons (Valentin le luron)">
+        <img src="http://fancyapps.com/fancybox/demo/2_s.jpg" alt="" />
+      </a>
+      <a class="fancybox-thumb" rel="fancybox-thumb" href="http://fancyapps.com/fancybox/demo/3_b.jpg" title="The cold morning (Raimondas Ka.)">
+        <img src="http://fancyapps.com/fancybox/demo/3_s.jpg" alt="" />
+      </a>
+
+</body>   
+
+
+
+<!-- Colorbox html Starts here    -->
+
+    <!-- for colorbox -->
+      <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example1/colorbox.css" />
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
+    <!-- end for colorbox -->
+
+    <script>
+        function openColorBox(){
+          $.colorbox({iframe:true, width:"80%", height:"80%", href: "/login/",escKey: false,overlayClose: false});
+        }      
+        function countDown(){
+          seconds--
+          $("#seconds").text(seconds);
+          if (seconds === 0){
+            openColorBox(); 
+            clearInterval(i);
+            
+          }
+        }
+        var seconds = 5,
+        i = setInterval(countDown, 1000);      
+    </script>

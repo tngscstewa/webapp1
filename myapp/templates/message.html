@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style type="text/css">
+  
+</style>
+    <!-- Registration form --><center>
+<div class="container">
+
+  <h2>Messages</h2>
+<div class="alert-success">    
+{% if message %}<center>
+<div  style="height:100px;padding-top:50px" class="alert-success"> 
+ <p  style="color:orange;font-size:20px" >{{message}}</p> </center>
+ </div>
+{% endif %}
+{% if not_member %}<center>
+<div  style="height:100px;padding-top:50px" class="alert-success"> 
+ <p  style="color:orange;font-size:20px" >{{not_member}}.Please Click the membership link and registered with us..thank you</p> </center>
+ </div>
+{% endif %}
+
+</div>
+
+<br>
+
+{% endblock %}

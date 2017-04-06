@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style type="text/css">
+  
+</style>
+    <!-- Registration form --><center>
+<div class="container">
+
+  <h2>Welcome to TNGSCSTEWA Online Membership</h2>
+<div class="alert-success">    
+{% if email_exist %}<center>
+<div  style="height:100px;padding-top:50px" class="alert-success"> 
+ <p  style="color:orange;font-size:20px" >Oops..! {{email_exist}}</p> </center>
+ </div>
+{% endif %}
+{% if new_member_detail %}
+<div class="alert-success"> 
+    
+<center>
+Hi {{new_member_detail.name}} Congratulations....! Your Memebeship Id Number is <p style="color:#0088cc;">{{new_member_detail.member_id_no}}</p> 
+Your Membership card is waiting for approval....
+</center></center>
+</div>
+{% endif %}
+
+{% if duplicate_card %}
+<div class="alert-success">    
+    <div class="last-card text-center"><center>
+      <a href="/get_id" class="btn btn-primary">Click Here .! Get Your tngscstewa Id-Card</a></center><br><br>
+<center>
+Hi {{duplicate_card.name}} 
+Your Membership card is waiting for approval....
+</center></center>
+{% endif %}
+</div>
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+  <!-- css for 3d flipping modalbox -->
+  <style class="cp-pen-styles">
+
+  * {
+  margin: 0;
+  padding: 0;
+}
+.header{
+  margin-bottom: 20px;
+}
+header{
+  float: center;
+  font-size: 20px;
+  color: white;
+  font-weight: normal;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  top: 20px;
+  left: 0;
+  /*display: flex;*/
+  /*position: fixed;*/
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: 'Lato', sans-serif;
+}
+
+.modal h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+
+p { font-size: 15px; }
+
+.content {
+
+  border-radius:10px;
+  background-image: -webkit-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: -moz-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: -ms-radial-gradient(circle, #e2f0cb, #9bd151);}
+
+
+
+.button {
+  background-image: -webkit-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: -moz-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: -ms-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: radial-gradient(circle, #e2f0cb, #9bd151);
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 21px rgba(50, 49, 79, 0.3);
+  transition: all .4s;
+}
+
+.button:hover { box-shadow: 0 0 30px rgba(50, 49, 79, 0.5); }
+
+.modal {
+  width: 530px;
+  height: 265px;
+  perspective: 2000px;
+  z-index: 2;
+  position: absolute;
+  top: calc(50% - 132.5px);
+  left: calc(50% - 265px);
+  display: none;
+}
+
+.ssi_modal {
+  width: 630px;
+  height: 600px;
+  perspective: 2000px;
+  z-index: 2;
+  position: absolute;
+  top: 3%;
+  left :17%;
+  display: none;
+  background-color: #def;
+
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.shadow { box-shadow: 0 0 30px rgba(50, 49, 79, 0.5); }
+
+.wrapper {
+  background: rgba(50, 49, 79, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.front, .back, .opened {
+  height: 265px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.front {
+  background-image: -webkit-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: -moz-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: -ms-radial-gradient(circle, #e2f0cb, #9bd151);
+  background-image: radial-gradient(circle, #e2f0cb, #9bd151);
+  width: 265px;
+  text-align: center;
+  padding-top: 1px;
+  cursor: pointer;
+  z-index: 3;
+  backface-visibility: hidden;
+  transform-origin: 0% 50%;
+  box-shadow: 0 0 21px rgba(50, 49, 79, 0.5);
+  transform: rotateY(-180deg);
+}
+
+.back, .opened {
+  width: 530px;
+  padding: 35px 25px;
+  clip: rect(auto, auto, auto, 265px);
+}
+
+.back {
+  background: #f2f2f2;
+  transform-origin: 50% 50%;
+  transform: rotateY(-180deg);
+}
+
+.back .content { transform: rotateY(180deg); }
+
+.opened { background: #f2f2f2; }
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background: url(http://i63.tinypic.com/1671taq.png) no-repeat center;
+  background-size: cover;
+  opacity: .6;
+}
+
+.front-open { animation: front 1.1s forwards ease-in-out; }
+
+.back-open { animation: back 1.1s forwards ease-in-out; }
+
+.opened-open { animation: opened 1.1s forwards ease-in-out; }
+
+.front-close { animation: front 1.1s forwards reverse ease-in-out; }
+
+.back-close { animation: back 1.1s forwards reverse ease-in-out; }
+
+.opened-close { animation: opened 1.1s forwards reverse ease-in-out; }
+ @keyframes 
+front {  0% {
+ transform: rotateY(0deg);
+ left: 132.5px;
+}
+ 100% {
+ transform: rotateY(-180deg);
+ left: 265px;
+}
+}
+@keyframes 
+back {  0% {
+ transform: rotateY(0deg);
+ left: -132.5px;
+ background: #4d4d4d;
+}
+ 100% {
+ transform: rotateY(-180deg);
+ left: 0;
+ background: #f2f2f2;
+}
+}
+@keyframes 
+opened {  0% {
+ left: -132.5px;
+ background: #a6a6a6;
+}
+ 100% {
+ left: 0;
+ background: #f2f2f2;
+}
+}
+.lout{
+  float:right;
+}
+.container2{
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 4%, rgba(255,255,255,1) 11%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 4%,rgba(255,255,255,1) 11%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 4%,rgba(255,255,255,1) 11%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  height:100px;
+}
+.left {
+   -webkit-align-self: flex-start;
+   align-self: flex-start;
+}
+
+.right {
+    margin-top: 20px;
+   margin-left: auto;
+}
+.hi {
+   -webkit-flex: 1 0 0;
+   flex: 1 0 0;
+}
+.dt{
+  margin-top: 10px;
+
+}
+.iconDetails{
+  height:90px;
+  width : 90px;
+}
+name{
+  font-weight: bold;
+}
+.marg{
+  margin-left:10px;
+}
+</style>
+
+<!-- end -->
+
+
+
+  <title>dummy</title>
+
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/table.css">
+  
+
+  <style type="text/css">
+    #ph{
+    	border-radius: 50px;
+    }
+    html { 
+    background: url("{{ MEDIA_URL }}indian-marriage.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+  </style>
+
+  <!-- for pagination in bootstrap table -->
+  
+  <meta name="description" content="Bootstrap.">  
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">   
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  
+  <!-- end pagination in table -->
+  
+</head>
+
+
+<body style="background: rgba(50, 49, 79, 0.5);">
+
+  <div class='container2'>    
+      <div class="left">
+        <img src="{{STATIC_URL}}user.png" height=100px width=80px class="iconDetails"/>
+      </div>  
+      <div style='margin-left:60px;margin-top:20px;' >
+        <span style="font-size:20px; font-weight:bold; color:teal;">தமிழ்நாடு அரசு SC /ST  அலுவலர் நல சங்கம் </span>
+      </div>
+      <div class="right">
+        <div style="float:right;font-size:.6em">
+          <a class="btn btn-danger lout" href="/matrimony/logout/">logout</a>
+        </div>
+        <div style="float:right;margin-right:10px;">
+          <header>
+            Hi, {% if user_cat.is_superuser == True %}{{ name }}{% else %}{{ a_name }}{% endif %}
+          </header>
+        </div>
+      </div>  
+  </div>
+
+
+  
+  <div class="dt" >
+    <table id="background-image" class="table table-striped" cellspacing="0" style="border-radius:10px;margin-top:10px;">
+        <thead>
+        	<tr>
+              <th scope="col">Name</th>
+              <th scope="col">Photo</th>
+          	  <th scope="col">Age</th>
+              <th scope="col">City</th>
+              <th scope="col">Education</th>
+              <th scope="col">Job</th>
+              {% if user_cat.is_superuser == True %}
+              <th scope="col">Approval Status</th>
+              {% endif %}
+          </tr>
+        </thead>
+        <tfoot>
+        	<tr>
+            <td {% if user_cat.is_superuser == True %} colspan="7" {% else %} colspan="6"{% endif %}>
+              ( Click on the image to view details )
+            </td>
+          </tr>
+        </tfoot>
+
+        <tbody>
+          <script type="text/javascript">
+            function dateDiff(date) {
+              date = date.split('-');
+              var today = new Date();
+              var year = today.getFullYear();
+              var month = today.getMonth() + 1;
+              var day = today.getDate();
+              var yy = parseInt(date[0]);
+              var mm = parseInt(date[1]);
+              var dd = parseInt(date[2]);
+              var years, months, days;
+              // months
+              months = month - mm;
+              if (day < dd) {
+                  months = months - 1;
+              }
+              // years
+              years = year - yy;
+              if (month * 100 + day < mm * 100 + dd) {
+                  years = years - 1;
+                  months = months + 12;
+              }
+              // days
+              days = Math.floor((today.getTime() - (new Date(yy + years, mm + months - 1, dd)).getTime()) / (24 * 60 * 60 * 1000));
+              //
+              return {years: years, months: months, days: days};
+            }
+          </script>
+
+        	{% for i in img %}
+            <tr>
+              <td><name>{{i.user_key.bridename}}</name><br>{{i.user_key.reg_no}}</td>
+            	<td class="button">
+                <img onclick="display('{{i.user_key.reg_no}}','{{i.user_key.bridename}}','{{i.user_key.dob}}','{{i.high_edu}}','{{i.height}}','{{i.job}}','{{i.photo1}}','{{i.photo2}}','{{i.id}}')" id="ph" src="{{ MEDIA_URL }}{{i.photo2}}" style="height:40px;width:40px;"/><br>
+              </td>
+              <td id="{{i.id}}">
+                <script type="text/javascript">
+                  $(document).ready(function() {
+                      age = dateDiff('{{i.user_key.dob.isoformat}}');
+                      document.getElementById('{{i.id}}').innerHTML = age.years+'y '+age.months+'m  '+age.days+'d'
+                      return false;
+                  });
+
+                </script>
+                
+              </td>  
+              <td>{{i.city}}</td>
+              <td>{{i.high_edu}}</td>
+
+              {% ifequal i.job 'G' %}
+                  <td id='tjob'>Government</td>
+              {% endifequal %}
+              {% ifequal i.job 'S' %}
+                <td id='tjob'>Self-Employed</td>
+              {% endifequal %}
+              {% ifequal i.job 'P' %}
+                  <td id='tjob'>Private</td>
+              {% endifequal %}
+
+
+              {% if user_cat.is_superuser == True %}
+                <td>                    
+                  {% if i.user_key.appr_status == "No" %}
+                    <p style="color:orange;">
+                      <span class="glyphicon glyphicon-bookmark"></span>Waiting for Approval
+                    </p>
+                  {% else %}
+                    <p style="color:green;">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>Approved
+                    </p>
+                  {% endif %}
+                </td>
+              {% endif %}
+              
+            </tr>
+            {% endfor %}
+          <script type="text/javascript">
+
+            function display(reg,name,dob,edu,ht,jb,p1,p2,n)
+                  {   
+
+                      
+
+                      document.getElementById('nm1').innerHTML=name+' ('+reg+')';
+                      document.getElementById('dob1').innerHTML=dob;
+                      document.getElementById('ht1').innerHTML=ht;
+                      document.getElementById('edn1').innerHTML=edu;
+                      
+                      document.getElementById('nm2').innerHTML=name+' ('+reg+')';
+                      document.getElementById('dob2').innerHTML=dob;
+                      document.getElementById('ht2').innerHTML=ht;
+                      document.getElementById('edn2').innerHTML=edu;
+                      
+                      
+                      document.getElementById('or_photo').src='{{MEDIA_URL}}'+p1;
+                      document.getElementById('ssi_img').src='{{MEDIA_URL}}'+p1;
+                      document.getElementById('ph_ico1').src='{{MEDIA_URL}}'+p2;
+                      document.getElementById('ph_ico2').src='{{MEDIA_URL}}'+p2;
+                      
+                      
+                      if(jb == 'G'){
+                        document.getElementById('occ1').innerHTML='Government';
+                        document.getElementById('occ2').innerHTML='Government';
+                        document.getElementById('tjob').innerHTML='Government';
+                      }
+                      else if(jb == 'P'){
+                        document.getElementById('occ1').innerHTML='Private';
+                        document.getElementById('occ2').innerHTML='Private';
+                      }
+                      else{
+                        document.getElementById('occ1').innerHTML='Self-Employed';
+                        document.getElementById('occ2').innerHTML='Self-Employed';
+                      }
+
+                     document.getElementById('eg').setAttribute("href",'/matrimony/fulldet/'+n); 
+                  }
+
+            function getAge(birth) {
+                // var today = new Date();
+
+                // var nowdate = today.getDate();
+                // var nowmonth = today.getMonth();
+                // var nowyear = today.getFullYear();
+
+
+                // var birthyear = birth.getFullYear();
+                // var age = nowyear - birthyear;
+                // alert(age);
+                alert(birth);
+            } 
+          </script>
+            
+        </tbody>
+    </table>
+  </div>
+
+
+  <div class="modal">
+    <div class="front"><img id="or_photo" style="width:265px;height:265px;" alt="matryoshka"></div>
+    <div class="back">
+      <div class="content">
+        <div class="marg">
+          
+            <span id="modal6">
+              <img id="ph_ico1" style="width:60px;height:60px;border-radius:10px;" />
+            </span>
+          
+          {% if user_cat.is_superuser == True %}
+            <a href="" id="eg"><button class="btn btn-success">View All</button></a>
+          {% endif %}
+          <h3 id='nm1'></h3>
+          <p>
+            Date Of Birth &ensp;&nbsp;:  <label id='dob1'></label><br>
+            Height  &emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp;:&nbsp;<label id='ht1'></label> (in feet,inches)<br>
+            Education &nbsp;&nbsp;&nbsp; &ensp;&nbsp;  :&nbsp;<label id='edn1'></label><br>
+            Occupation&nbsp;&nbsp;&nbsp; &nbsp;  :&nbsp;<label id='occ1'></label><br>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="opened">
+      <div class="content">
+        <div class="marg">
+          <img id="ph_ico2" style="width:60px;height:60px;border-radius:10px;" />
+          <h3 id='nm2'></h3>
+          <p>
+            Date Of Birth &ensp;&nbsp;:  <label id='dob2'></label><br>
+            Height  &emsp;&emsp;&emsp;&ensp;&nbsp;&nbsp;:&nbsp;<label id='ht2'></label> (in feet,inches)<br>
+            Education &nbsp;&nbsp;&nbsp; &ensp;&nbsp;  :&nbsp;<label id='edn2'></label><br>
+            Occupation&nbsp;&nbsp;&nbsp; &nbsp;  :&nbsp;<label id='occ2'></label><br>
+          </p>
+        </div>
+      </div>
+      <div class="close"></div>
+    </div>
+  </div>
+  <div class="wrapper"></div>
+
+<div class="ssi_modal">
+  <span class="close">X</span>
+  <img style='height: 100%; width: 100%; object-fit: contain' id="ssi_img"/>
+</div>
+
+  <script type="text/javascript">
+    $('.close').click(function () {
+    $('.ssi_modal').hide();
+    });
+
+    "use strict";
+       $('#modal6').click(function () {
+          $('.modal').hide();
+          $('.ssi_modal').show();
+          
+        });  
+  </script>
+
+
+
+
+  
+  <!-- script for 3d flipping modalbox -->
+  
+  <script>
+  $('.button').click(function() {
+    // $(this).hide();
+    $('.front').addClass('front-open');
+    $('.back').addClass('back-open');
+    $('.opened').addClass('opened-open');
+    $('.modal').show();
+    setTimeout(function() {
+      $('.modal').addClass('shadow');
+    }, 1000);
+    setTimeout(function() {
+      $('.front').removeClass('front-open');
+      $('.back').removeClass('back-open');
+      $('.opened').removeClass('opened-open');
+    }, 1200);
+    $('.wrapper').delay(500).fadeIn();
+  });
+
+  $('.close').click(function() {
+    $('.wrapper').fadeOut(300);
+    $('.modal').removeClass('shadow');
+    $('.front').addClass('front-close');
+    $('.back').addClass('back-close');
+    $('.opened').addClass('opened-close');
+    setTimeout(function() {
+      $('.modal').hide();
+      $('.button').show();
+      $('.front').removeClass('front-close');
+      $('.back').removeClass('back-close');
+      $('.opened').removeClass('opened-close');
+    }, 1100)
+  })
+
+  $('.wrapper').click(function() {
+    $('.wrapper').fadeOut(300);
+    $('.modal').removeClass('shadow');
+    $('.front').addClass('front-close');
+    $('.back').addClass('back-close');
+    $('.opened').addClass('opened-close');
+    setTimeout(function() {
+      $('.modal').hide();
+      $('.button').show();
+      $('.front').removeClass('front-close');
+      $('.back').removeClass('back-close');
+      $('.opened').removeClass('opened-close');
+    }, 1100)
+  })
+  </script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+  <!-- end for script -->
+
+
+</body>
+
+<!-- script for table pagination -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('#background-image').dataTable();
+      });
+
+      $(document).ready(function()
+      {
+          $('img').bind('contextmenu', function(e){
+              return false;
+          }); 
+      });
+    </script>
+    
+</html>

@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!-- data table -->
+<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#mytable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+</script>
+<!-- data table end -->
+<style type="text/css">
+  
+</style>
+    <!-- Registration form --><center>
+<div class="container">
+
+  <h2>Members List</h2>
+<div class="alert-success">    
+
+<table id="mytable"  cellspacing="0" width="100%" class='table table-bordered table-striped2' border="1">
+  <thead>
+    <tr>
+   
+      <th >S.no</th>
+      <th >Member ID</th>
+      <th >Name</th>
+      <th >Designation</th>
+      <th >DOB</th>
+      <th >Mobile</th>
+      <th >District</th>
+    </tr>
+</thead>
+<tbody>
+{% for m in members %}
+    <tr>
+    	<td>{{forloop.counter}}</td>
+    	<td>{{m.member_id_no}}</td>
+    	<td>{{m.name}}</td>
+    	<td>{{m.designation}}</td>
+    	<td>{{m.dob}}</td>
+    	<td>{{m.mobile}}</td>
+    	<td>{{m.district}}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html>
+<head>
+	<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script><!-- added for SmartSelects -->
+
+<!-- added for formance input mask -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="{{STATIC_URL}}formance.min.js"></script>
+
+<!-- added for django inputmask -->
+<script src="{{STATIC_URL}}input-mask/jquery.inputmask.js"></script>
+<script src="{{STATIC_URL}}input-mask/jquery.inputmask.date.extensions.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd-mm-yyyy", {"placeholder": "dd-mm-yyyy"});
+                //Datemask2 mm/dd/yyyy
+
+                $("[data-mask]").inputmask();
+
+                //Date range as a button
+
+            });
+</script>
+
+<script>
+    $( function() {
+      $("input[type='submit']").prop("disabled", true); // disable the submit button
+      $("input.date_format").formance("format_dd_mm_yyyy") // setup the formatter
+                             .on( 'keyup change blur', function (event) { // setup the event listeners to validate the field whenever the user takes an action
+                               if ( $(this).formance('validate_dd_mm_yyyy') )
+                                 $("input[type='submit']").prop("disabled", false); // enable the submit button if valid phone number
+                               else
+                                 $("input[type='submit']").prop("disabled", true); // disable the submit button if invalid phone number
+                             });
+    });
+</script>
+<style type="text/css">
+form {
+  position: relative;
+  width: 500px;
+  margin: 30px auto;
+  font-size : 12px;
+  background: rgba(192,192,192,0.8);
+  padding: 0px 22px;
+  border: 1px solid;
+  border-top-color: rgba(255,255,255,.4);
+  border-left-color: rgba(255,255,255,.4);
+  border-bottom-color: rgba(60,60,60,.4);
+  border-right-color: rgba(60,60,60,.4);
+}
+body {
+  background: url({{ MEDIA_URL }}indian-marriage.jpg) no-repeat center center fixed;
+    -moz-background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+ 
+  font-family: "Open Sans Condensed", sans-serif;
+}
+.title{
+  font-size: 20px;
+  float:center;
+  color : white;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.error_message{
+  color : crimson;
+}
+.titlebar{
+  height : 100px;
+  width : auto;
+  position : fixed;
+}
+.logo{
+  width : 100px;
+  height: 90px;
+}
+
+ .iconDetails {
+ margin-left:2%;
+float:left; 
+height:40px;
+width:40px; 
+} 
+
+.container2 {
+  width:100%;
+  height:auto;
+  
+  /*background-color:;*/
+  /*position: fixed;*/
+
+}
+
+h4 {
+    margin:0px;
+}
+
+
+.header {
+      background: -moz-linear-gradient(left, rgba(255,255,255,1) 4%, rgba(255,255,255,1) 11%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 4%,rgba(255,255,255,1) 11%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 4%,rgba(255,255,255,1) 11%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); 
+      
+    }
+</style>
+</head>
+<body>
+
+
+<div class='container2'>
+  <div  class= "header" style = "position:fixed;width:90%;height:100px;padding:1px;z-index: 1;">
+
+    <div style="margin-top:0px;">
+      <img src="{{STATIC_URL}}user.png" style="height:98px;width:80px;border-radius:50%" class="iconDetails"/>
+    </div>  
+    <div style='margin-left:100px;margin-top:0px;' >
+      <span style="font-weight:bold; color:black;">
+        <center>
+          <span style="font-size:30px;" class="threedee">
+            தமிழ்நாடு அரசு எஸ்சி/எஸ்டி அலுவலர் நலச்சங்கம்
+          </span><br>
+          <span style="font-size:15px;">
+            பதிவு எண்
+          </span>
+          <span style="font-size:10px;">
+            -58/1976
+          </span>
+        </center>
+      </span>
+    </div>
+
+    <div style="float:right;font-size:.6em">
+      <a href="/matrimony/login/"><button class="btn btn-danger" style="background-color:crimson;" >Log in</button></a>
+    </div>
+    <div style="float:right;margin-right:10px;">
+      <a href="/matrimony/search/"><button class="btn btn-danger" style="background-color:crimson;" >Search</button></a>
+    </div>
+  </div>
+</div>
+<br>
+
+{% block content %}
+
+{% endblock %}
+
+
+  
+</div>
+</body>
+</html>

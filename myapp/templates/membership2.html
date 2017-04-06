@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{{form}}
+
+    <!-- Registration form --><center>
+<div class="container">
+  <h2>Online Membership Form&nbsp;&nbsp;&nbsp;&nbsp;
+  <ul class="social-share">
+  <li><a data-toggle="tooltip" title="Print your card" href="/printId"><i class="fa fa-print"></i></a></li>
+  </ul>
+</h2>
+<hr>
+  
+  <form class="form-inline" role="form">
+    <div  class="form-group">
+      <label for="name">1.Name:</label>
+      <input required type="name" class="form-control" name="name" id="name" placeholder="Enter name">
+    </div>&nbsp;&nbsp;
+    <div class="form-group">
+      <label for="father_name">2.Father Name:</label>
+      <input required type="father_name" class="form-control" name="father_name" id="father_name" placeholder="Father Name">
+    </div>&nbsp;&nbsp;
+    <br><br>
+    <div class="form-group">
+      <label for="DOB">3.Date of birth:</label>
+      <input required type="date" class="form-control"  name="dob" id="dob" placeholder="Date of Birth">
+    </div>&nbsp;&nbsp;
+    <div class="form-group">
+      <label for="doj">4.Date of joining in govt post:</label>
+      <input required type="date" class="form-control" name="doj" id="doj" placeholder="DOJ">
+    </div>&nbsp;&nbsp;
+
+    <br><br>
+    <div class="form-group">
+      <label for="district">5.District:</label>
+      <select required class="form-control" id="district" name="district">
+      	<option>Vellore</option>
+      </select>
+    </div>&nbsp;&nbsp;
+
+    <div class="form-group">
+      <label for="block">6.Block:</label>
+      <select required class="form-control" id="block" name="block">
+      	<option>Vellore</option>
+      </select>
+    </div>&nbsp;&nbsp;
+    <div class="form-group">
+      <label for="address">7.Address:</label>
+      <input required type="address" class="form-control" name="address" id="address" placeholder="address">
+    </div>&nbsp;&nbsp;
+<br><br>
+    <div class="form-group">
+      <label for="Designation">8.Present Designation:</label>
+      <input required type="text" class="form-control" id="present_office" placeholder="Designation">
+      </select>
+    </div>&nbsp;&nbsp;
+
+    <div class="form-group">
+      <label for="present_office">9.Present office:</label>
+      <input required type="text" class="form-control" name="office" id="office" placeholder="Office">
+    </div>&nbsp;&nbsp;
+    <br><br>
+    <div class="form-group">
+      <label for="qualification">10.Educational qualification:</label>
+      <input required type="qualification" class="form-control" name="qualification" id="qualification" placeholder="Qualification">
+    </div>&nbsp;&nbsp;
+    <div class="form-group">
+      <label for="photo">10.Photo:</label>
+      <input required type="file" class="form-control" name="photo" id="photo" placeholder="photo">
+    </div>&nbsp;&nbsp;
+    <br><br>
+    <div class="form-group">
+      <label for="mobile">11.Mobile number:</label>
+      <input minlength='10' maxlength="10" required type="number"  name="mobile" class="form-control" id="mobile" placeholder="Mobile">
+    </div>&nbsp;&nbsp;
+
+    <div class="form-group">
+      <label for="email">12.Email:</label>
+      <input required type="email" class="form-control" name="email" id="email" placeholder="Email">
+    </div>&nbsp;&nbsp;
+    <br><br>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>&nbsp;&nbsp;
+<br><br>
+</center>
+<script type="text/javascript"></script>
+<!-- Registration form -->
+
+
+
+{% endblock %}

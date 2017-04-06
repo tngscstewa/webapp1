@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content%}
+<style>
+form{
+  border-radius:10px;
+}
+.control-label{
+  font-size: 10px;
+}
+.form-control{
+  font-size: 10px;
+}
+.form-horizontal .control-label{
+    text-align: left;
+}
+
+</style>
+<div class="main-content" style='margin-top:100px;'>
+<form action='' id="frm" class="form-horizontal" autocomplete="off" method=POST enctype="multipart/form-data"> {% csrf_token %}
+<center> <h3><b style="color:crimson;">Register</b></h3></center>
+  
+  <!-- Userprofile form -->
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="email">Bride/Bride Groom Full Name:</label>
+    <div class="col-sm-7">
+      <script type="text/javascript">
+        function caps(x){
+          document.getElementById("id_bridename").value = x.toUpperCase();;
+        }     
+      </script>
+      {{ test1.bridename|add_class:'form-control'|attr:"oninput:caps(this.value);"|attr:"placeholder:Initials at end" }}
+    </div>
+    <span class="error_message">{{ profile_form.bridename.errors }}</span>  
+    
+  </div>
+
+
+  <div class="form-group">
+    <label for="id_pf_creator" class="control-label col-sm-5">Profile Created By:</label> 
+      <div class="col-sm-7">
+        <select class="form-control" id="id_pf_creator" name="pf_creator" placeholder="pf_creator">
+          <option value="" selected="selected">---------</option>
+          <option value="SELF">SELF</option>
+          <option value="PARENTS">PARENTS</option>
+          <option value="SIBLINGS">SIBLINGS</option>
+          <option value="FRIENDS">FRIENDS</option>
+          <option value="RELATIVES">RELATIVES</option>
+        </select>
+      </div>
+    <span class="error_message">{{ profile_form.pf_creator.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="id_gender" class="control-label col-sm-5">Gender:</label> 
+      <div class="col-sm-7">
+        <select class="form-control" id="id_gender" name="gender" placeholder="gender">
+          <option value="" selected="selected">---------</option>
+          <option value="M">MALE</option>
+          <option value="F">FEMALE</option>
+        </select>
+      </div>
+    <span class="error_message">{{ profile_form.gender.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="id_dob" class="control-label col-sm-5">Date of Birth:</label> 
+    <div class="col-sm-7">
+      <input class="form-control" id="id_dob" name="dob" type="text" data-mask="" data-inputmask="'alias': 'dd-mm-yyyy'"/>
+    </div>
+      <span class="error_message">{{ profile_form.dob.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="id_status" class="control-label col-sm-5">Marital Status:</label> 
+    <div class="col-sm-7">
+      <select class="form-control" id="id_status" name="status" placeholder="status">
+        <option value="" selected="selected">---------</option>
+        <option value="UNMARRIED">UNMARRIED</option>
+        <option value="WIDOW/WIDOWER">WIDOW/WIDOWER</option>
+        <option value="DIVORCED">DIVORCED</option>
+      </select>
+    </div>
+    <span class="error_message">{{ profile_form.status.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="id_religion">Religion:</label>
+    <div class="col-sm-7">  
+    {{ test1.religion|add_class:"form-control"|attr:"placeholder:religion" }}        
+      
+    </div>
+    <span class="error_message">{{ profile_form.religion.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="id_community">Community:</label>
+    
+    <div class="col-sm-7">
+      {{ test1.community|add_class:"form-control"|attr:"placeholder:community" }}
+    </div>
+    <span class="error_message">{{ profile_form.community.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="id_subcaste">Subcaste:</label>
+    <div class="col-sm-7">          
+      {{ test1.subcaste|add_class:"form-control"|attr:"placeholder:subcaste" }} 
+    </div>   
+    <span class="error_message">{{ profile_form.subcaste.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="id_mother_tongue">Mother Tongue:</label>
+    <div class="col-sm-7">          
+      {{ test1.mother_tongue|add_class:"form-control"|attr:"placeholder:mother_tongue" }}
+    </div>
+    <span class="error_message">{{ profile_form.mother_tongue.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="id_district">District:</label> 
+    <div class="col-sm-7">          
+      {{ test1.district|add_class:"form-control"|attr:"placeholder:district" }}
+    </div>
+    <span class="error_message">{{form.district.errors}}</span>          
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="id_mobile">Mobile Number:</label> 
+    <div class="col-sm-7">          
+      {{ test1.mobile|add_class:"form-control"|attr:"value:+919788568944"|attr:"placeholder:+91----------" }}
+    </div>
+    <span class="error_message">{{ profile_form.mobile.errors }}</span>          
+  </div>
+
+  <!-- Userform -->
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="pwd">Email:</label>
+    <div class="col-sm-7">          
+      <input class="form-control" id="id_email" maxlength="75" name="email" placeholder="Email" type="email" />
+    </div>
+    <span class="error_message">{{ user_form.email.errors }}</span>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="email">Username:</label>
+    <div class="col-sm-7">
+      <input class="special form-control" id="id_username" name="username" placeholder="Username" type="text" />
+    </div>
+    <span class="error_message">{{ user_form.username.errors }}</span>  
+    
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-5" for="pwd">Password:</label>
+    <div class="col-sm-7">          
+      <input class="form-control" id="id_password" maxlength="60" name="password" placeholder="Password" type="password" />
+    </div>
+    <span class="error_message">{{ user_form.password.errors }}</span>
+  </div>
+
+  
+
+  
+  
+  
+      <center>
+        <div class="form-row">
+            <button class="btn btn-success" type="submit" name="save" style="margin-bottom:10px;">
+              <span class="glyphicon glyphicon-floppy-register"></span>&nbsp;Register
+            </button>
+        </div>
+      </center>
+        
+    </form>
+    </div>
+    {% endblock %}

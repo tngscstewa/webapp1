@@ -1,0 +1,133 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function PrintDiv(id) {
+            var data=document.getElementById(id).innerHTML;
+            var myWindow = window.open('', 'my div', 'height=1000,width=1200');
+            myWindow.document.write('<html><head><title>my div</title>');
+            // optional stylesheet //myWindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
+            myWindow.document.write('</head><body >');
+            myWindow.document.write(data);
+            myWindow.document.write('</body></html>');
+            myWindow.document.close(); // necessary for IE >= 10
+
+            myWindow.onload=function(){ // necessary if the div contain images
+
+                myWindow.focus(); // necessary for IE >= 10
+                myWindow.print();
+                myWindow.close();
+            };
+        }
+    </script>
+</head>
+<body>
+
+<style type="text/css">
+    .theme {
+    /*background:url(/static/images/tn.png)#b8e7ff;*/
+    background-repeat:no-repeat;
+}
+</style>
+
+<center>
+<div id="myDiv">
+
+<!--  <img  src="/static/images/tn.png" alt="tn.png" /> -->
+<img  src="/static/images/cuting.png" alt="tn.png" /><br><br>
+<table  >
+<tr>
+<td>
+<table bgcolor="#b8e7ff" border="1" style="border:0; width: 410px; height: 208px;">
+    <tr bgcolor="#0088cc" >
+        <th colspan="5" style=" #0000FF; border-right-width: 0;">
+            
+                    <img style="float:left;" width="50" height="50" src="/static/images/ambethkar.jpg" />
+                  <font style="color:white;font-size:17px" ><b>Tn Govt Sc/St Employees Welfare Assosiation </b></font>
+                  <font style="color:#ff375a;font-size:10px">Register number-58/1976</font><br>
+          <font style="color:white;font-size:10px">Government Museum campus,Pantheon Road,
+                                    Egmore, 
+                                    Chennai-600 009</font>
+            
+        </th style= "border-left-width: 0; border-right-width: 0; border-left-width: 0;">
+
+        
+    </tr>
+    <tr>
+        <td style="border:0" rowspan="5" >
+            <div style= "border:0;height: 130px; width: 120px; overflow: hidden;">
+                    <img style="margin-top:20px;" height="120" width="120" src="/static/images/state/thilagar.jpg" />
+
+            </div>
+
+        </td>
+        <td style="border:0;color:#ff375a;">Member Id no : </td>
+        <td style="border:0;color:#002662;"><b>TNGA00000</b></td>
+    </tr>
+
+      <tr>
+        <td style="border:0;color:#ff375a;">Name : </td>
+        <td style="border:0;color:#002662;"><b>K.B.G.Thilagar</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;color:#ff375a;">Designation : </td>
+        <td style="border:0;color:#002662;"><b>{{child.class_studying}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;color:#ff375a;">Office : </td>
+        <td style="border:0;color:#002662;"><b>{{child.unique_id_no}}</b></td>
+    </tr>
+    <tr>
+        <td style="border:0;"> &nbsp; &nbsp;</td>
+        <td style="border:0;">&nbsp; &nbsp; </td>
+    </tr>
+    <tr>
+        <td style="border:0;"> </td>
+        <td style="border:0;float:left"></td>
+    </tr>
+</table>
+</td>
+<td>&nbsp;</td>
+<td>
+<table  class="theme" bgcolor="#b8e7ff" style="border-style:solid;  blue; width: 410px; height: 208px; " border="1">
+    <tr>
+        <td style="border:0; width: 115px; color:#ff375a;" >Date of Birth : </td>
+        <td style="border:0;color:#002662;" >{{child.dob}}</td>
+    </tr>
+    <tr>
+        <td style="border:0; width: 115px;color:#ff375a; " >Blood Group : </td>
+        <td style="border:0;color:#002662;" >{{child.blood_group}}</td>
+    </tr>
+    <tr>
+        <td style="border:0; width: 115px; color:#ff375a;" >Mobile : </td>
+        <td style="border:0;color:#002662;" > {{child.father_name}}</td>
+    </tr>
+    <tr>
+        <td style="border:0;color:#ff375a;" >Address : </td>
+        <td style="border:0;color:#002662;" >{{child.house_address}}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border:0;" >
+        <div style="height: 25px; overflow: hidden;"
+              <object data="{{MEDIA_URL}}/{{child.unique_id_no}}.svg"  type="image/svg+xml" border-bottom-width: 1px;>
+                    <img src="{{MEDIA_URL}}/{{child.unique_id_no}}.svg"  />
+            </object>
+
+            </div>
+        </td>
+    </tr>
+  <tr>
+        <td colspan="2" style="border:0;color:#002662;" > If you find this card please drop in postbox</td>
+    </tr>
+
+
+</table>
+</td>
+</tr>
+</table>
+ <img  src="/static/images/cuting.png" alt="tn.png" /><br>
+    </div><br>
+   
+    <input type="button" value="Print Your Card" onclick="PrintDiv('myDiv')" /></center>
+
+</body>
+</html>
